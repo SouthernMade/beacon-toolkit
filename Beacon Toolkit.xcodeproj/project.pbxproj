@@ -19,6 +19,7 @@
 		D00CE3D31CAD836C00C30686 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D00CE3D21CAD836C00C30686 /* CoreLocation.framework */; };
 		D00CE3D51CAD84E700C30686 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D00CE3D41CAD84E700C30686 /* CoreBluetooth.framework */; };
 		D00CE3D71CADA08C00C30686 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D00CE3D61CADA08C00C30686 /* Settings.bundle */; };
+		D05111A11CAED96B00D6D3A4 /* TransmitterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D05111A01CAED96B00D6D3A4 /* TransmitterViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,8 @@
 		D00CE3D21CAD836C00C30686 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D00CE3D41CAD84E700C30686 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		D00CE3D61CADA08C00C30686 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		D051119F1CAED96B00D6D3A4 /* TransmitterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransmitterViewController.h; sourceTree = "<group>"; };
+		D05111A01CAED96B00D6D3A4 /* TransmitterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransmitterViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +126,8 @@
 				D00CE3A81CAD82B800C30686 /* Beacon_Toolkit.xcdatamodeld */,
 				D00CE39C1CAD82B800C30686 /* Supporting Files */,
 				D00CE3D61CADA08C00C30686 /* Settings.bundle */,
+				D051119F1CAED96B00D6D3A4 /* TransmitterViewController.h */,
+				D05111A01CAED96B00D6D3A4 /* TransmitterViewController.m */,
 			);
 			path = "Beacon Toolkit";
 			sourceTree = "<group>";
@@ -297,6 +302,7 @@
 				D00CE3A41CAD82B800C30686 /* BeaconViewController.m in Sources */,
 				D00CE3A11CAD82B800C30686 /* AppDelegate.m in Sources */,
 				D00CE39E1CAD82B800C30686 /* main.m in Sources */,
+				D05111A11CAED96B00D6D3A4 /* TransmitterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
