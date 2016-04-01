@@ -1,18 +1,18 @@
 //
-//  ViewController.m
+//  BeaconViewController.m
 //  Beacon Toolkit
 //
 //  Created by Justin Ramos on 3/31/16.
 //  Copyright © 2016 Justin Ramos. Released under the MIT license.
 //
 
-#import "ViewController.h"
+#import "BeaconViewController.h"
 
-@interface ViewController ()
+@interface BeaconViewController ()
 
 @end
 
-@implementation ViewController
+@implementation BeaconViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -61,7 +61,7 @@
     self.accuracyLabel.text = [NSString stringWithFormat:@"%f", beacon.accuracy];
 
     if (beacon.proximity == CLProximityUnknown) {
-        self.distanceLabel.text = @"Unknown Proximity";
+        self.distanceLabel.text = @"Unknown";
     } else if (beacon.proximity == CLProximityImmediate) {
         self.distanceLabel.text = @"Immediate";
     } else if (beacon.proximity == CLProximityNear) {

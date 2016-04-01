@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		D00CE39E1CAD82B800C30686 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D00CE39D1CAD82B800C30686 /* main.m */; };
 		D00CE3A11CAD82B800C30686 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D00CE3A01CAD82B800C30686 /* AppDelegate.m */; };
-		D00CE3A41CAD82B800C30686 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D00CE3A31CAD82B800C30686 /* ViewController.m */; };
+		D00CE3A41CAD82B800C30686 /* BeaconViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D00CE3A31CAD82B800C30686 /* BeaconViewController.m */; };
 		D00CE3A71CAD82B800C30686 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D00CE3A51CAD82B800C30686 /* Main.storyboard */; };
 		D00CE3AA1CAD82B800C30686 /* Beacon_Toolkit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D00CE3A81CAD82B800C30686 /* Beacon_Toolkit.xcdatamodeld */; };
 		D00CE3AC1CAD82B800C30686 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D00CE3AB1CAD82B800C30686 /* Assets.xcassets */; };
@@ -43,8 +43,8 @@
 		D00CE39D1CAD82B800C30686 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D00CE39F1CAD82B800C30686 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D00CE3A01CAD82B800C30686 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		D00CE3A21CAD82B800C30686 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		D00CE3A31CAD82B800C30686 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D00CE3A21CAD82B800C30686 /* BeaconViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeaconViewController.h; sourceTree = "<group>"; };
+		D00CE3A31CAD82B800C30686 /* BeaconViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeaconViewController.m; sourceTree = "<group>"; };
 		D00CE3A61CAD82B800C30686 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D00CE3A91CAD82B800C30686 /* Beacon_Toolkit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Beacon_Toolkit.xcdatamodel; sourceTree = "<group>"; };
 		D00CE3AB1CAD82B800C30686 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -114,8 +114,8 @@
 			children = (
 				D00CE39F1CAD82B800C30686 /* AppDelegate.h */,
 				D00CE3A01CAD82B800C30686 /* AppDelegate.m */,
-				D00CE3A21CAD82B800C30686 /* ViewController.h */,
-				D00CE3A31CAD82B800C30686 /* ViewController.m */,
+				D00CE3A21CAD82B800C30686 /* BeaconViewController.h */,
+				D00CE3A31CAD82B800C30686 /* BeaconViewController.m */,
 				D00CE3A51CAD82B800C30686 /* Main.storyboard */,
 				D00CE3AB1CAD82B800C30686 /* Assets.xcassets */,
 				D00CE3AD1CAD82B800C30686 /* LaunchScreen.storyboard */,
@@ -294,7 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D00CE3AA1CAD82B800C30686 /* Beacon_Toolkit.xcdatamodeld in Sources */,
-				D00CE3A41CAD82B800C30686 /* ViewController.m in Sources */,
+				D00CE3A41CAD82B800C30686 /* BeaconViewController.m in Sources */,
 				D00CE3A11CAD82B800C30686 /* AppDelegate.m in Sources */,
 				D00CE39E1CAD82B800C30686 /* main.m in Sources */,
 			);
