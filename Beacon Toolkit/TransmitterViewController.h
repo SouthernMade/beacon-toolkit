@@ -20,5 +20,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *majorLabel;
 @property (weak, nonatomic) IBOutlet UILabel *minorLabel;
 @property (weak, nonatomic) IBOutlet UILabel *identityLabel;
+@property (weak, nonatomic) IBOutlet UIButton *transmitButton;
 
 @end

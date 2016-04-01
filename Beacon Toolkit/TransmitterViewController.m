@@ -51,8 +51,10 @@
 -(void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral {
     if (peripheral.state == CBPeripheralManagerStatePoweredOn) {
         [self.peripheralManager startAdvertising:self.beaconPeripheralData];
+        self.transmitButton.titleLabel.text = @"Stop Beacon";
     } else if (peripheral.state == CBPeripheralManagerStatePoweredOff) {
         [self.peripheralManager stopAdvertising];
+        self.transmitButton.titleLabel.text = @"Start Beacon";
     }
 }
 
