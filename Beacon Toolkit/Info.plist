@@ -22,8 +22,6 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Used to range beacons in the background</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Used to range beacons</string>
 	<key>UILaunchStoryboardName</key>

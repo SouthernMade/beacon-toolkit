@@ -21,7 +21,7 @@
     self.locationManager.delegate = self;
 
     [self initRegion];
-    [self.locationManager requestAlwaysAuthorization];
+    [self.locationManager requestWhenInUseAuthorization];
     [self locationManager:self.locationManager didStartMonitoringForRegion:self.beaconRegion];
 }
 
