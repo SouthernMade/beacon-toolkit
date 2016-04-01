@@ -1,5 +1,5 @@
 //
-//  BeaconViewController.h
+//  DetectViewController.h
 //  Beacon Toolkit
 //
 //  Created by Justin Ramos on 3/31/16.
@@ -11,7 +11,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BeaconViewController : UIViewController <CLLocationManagerDelegate>
+@interface DetectViewController : UIViewController <CLLocationManagerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *beaconFoundLabel;
 @property (weak, nonatomic) IBOutlet UILabel *proximityUUIDLabel;

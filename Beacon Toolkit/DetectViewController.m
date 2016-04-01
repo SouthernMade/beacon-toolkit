@@ -1,18 +1,18 @@
 //
-//  BeaconViewController.m
+//  DetectViewController.m
 //  Beacon Toolkit
 //
 //  Created by Justin Ramos on 3/31/16.
 //  Copyright © 2016 Justin Ramos. Released under the MIT license.
 //
 
-#import "BeaconViewController.h"
+#import "DetectViewController.h"
 
-@interface BeaconViewController ()
+@interface DetectViewController ()
 
 @end
 
-@implementation BeaconViewController
+@implementation DetectViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

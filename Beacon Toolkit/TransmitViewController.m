@@ -6,13 +6,13 @@
 //  Copyright © 2016 Justin Ramos. Released under the MIT license.
 //
 
-#import "TransmitterViewController.h"
+#import "TransmitViewController.h"
 
-@interface TransmitterViewController ()
+@interface TransmitViewController ()
 
 @end
 
-@implementation TransmitterViewController
+@implementation TransmitViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -35,7 +35,7 @@
 }
 
 - (IBAction)transmitBeacon:(UIButton *)sender {
-    if ([self.peripheralManager isAdvertising]) { 
+    if ([self.peripheralManager isAdvertising]) {
         self.transmitButton.titleLabel.text = @"Start Beacon";
         [self.peripheralManager stopAdvertising];
     } else {

@@ -1,5 +1,5 @@
 //
-//  TransmitterViewController.h
+//  TransmitViewController.h
 //  Beacon Toolkit
 //
 //  Created by Justin Ramos on 4/1/16.
@@ -10,7 +10,7 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 #import <UIKit/UIKit.h>
 
-@interface TransmitterViewController : UIViewController <CBPeripheralManagerDelegate>
+@interface TransmitViewController : UIViewController <CBPeripheralManagerDelegate>
 
 @property (strong, nonatomic) CLBeaconRegion *beaconRegion;
 @property (strong, nonatomic) NSDictionary *beaconPeripheralData;
