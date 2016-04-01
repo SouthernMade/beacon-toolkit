@@ -42,12 +42,10 @@
 }
 
 - (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
-    NSLog(@"Beacon found");
     [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
 }
 
 -(void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region {
-    NSLog(@"Left region");
     [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
     self.beaconFoundLabel.text = @"No";
 }
