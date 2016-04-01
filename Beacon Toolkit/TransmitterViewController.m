@@ -35,10 +35,15 @@
 }
 
 - (IBAction)transmitBeacon:(UIButton *)sender {
-    self.beaconPeripheralData = [self.beaconRegion peripheralDataWithMeasuredPower:nil];
-    self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self
-                                                                     queue:nil
-                                                                   options:nil];
+    if ([self.peripheralManager isAdvertising]) { 
+        self.transmitButton.titleLabel.text = @"Start Beacon";
+        [self.peripheralManager stopAdvertising];
+    } else {
+        self.beaconPeripheralData = [self.beaconRegion peripheralDataWithMeasuredPower:nil];
+        self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self
+                                                                         queue:nil
+                                                                       options:nil];
+    }
 }
 
 - (void)setLabels {
@@ -50,11 +55,8 @@
 
 -(void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral {
     if (peripheral.state == CBPeripheralManagerStatePoweredOn) {
-        [self.peripheralManager startAdvertising:self.beaconPeripheralData];
         self.transmitButton.titleLabel.text = @"Stop Beacon";
-    } else if (peripheral.state == CBPeripheralManagerStatePoweredOff) {
-        [self.peripheralManager stopAdvertising];
-        self.transmitButton.titleLabel.text = @"Start Beacon";
+        [self.peripheralManager startAdvertising:self.beaconPeripheralData];
     }
 }
 
