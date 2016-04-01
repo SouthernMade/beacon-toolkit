@@ -6,8 +6,8 @@ By default, UUID `E20A39F4-73F5-4BC4-A12F-17D1AD07A961` is used. You can change 
 
 ## Detecting
 
-The default UUID is searched for on all major/minors. The first beacon detected is displayed.
+The default UUID is searched for on all major/minors. The first beacon detected is displayed. You can use my [pi-beacon configuration](https://github.com/jramos/raspbian-ua-netinst-conf#pi-beacon) to convert a Raspberry Pi into an iBeacon that broadcasts the default UUID.
 
 ## Transmitting
 
-The default UUID is transmitted with `00` for major and minor.
+The default UUID is broadcast with `00` for major and minor. You can use another iOS device running this app to detect the beacon. A combination of `hcitool lescan` and `hcidump --raw` can also be used to detect the beacon.
