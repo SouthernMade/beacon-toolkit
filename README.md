@@ -1,2 +1,2 @@
 # beacon-toolkit
-An iBeacon Detector example app
+An iBeacon toolkit
