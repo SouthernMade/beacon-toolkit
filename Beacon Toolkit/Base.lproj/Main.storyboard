@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -37,26 +38,36 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NMj-0B-ekA">
-                                <rect key="frame" x="270" y="378" width="60" height="30"/>
+                                <rect key="frame" x="270" y="363" width="60" height="30"/>
                                 <state key="normal" title="Transmit"/>
                                 <connections>
                                     <segue destination="559-Ys-wXh" kind="show" id="iGI-hr-krN"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hdM-di-F5W">
-                                <rect key="frame" x="277" y="264" width="46" height="30"/>
+                                <rect key="frame" x="277" y="285" width="46" height="30"/>
                                 <state key="normal" title="Detect"/>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="show" id="Nsk-xU-YAA"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beacon-icon" translatesAutoresizingMaskIntoConstraints="NO" id="xBa-ZS-jl7">
+                                <rect key="frame" x="180" y="111" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="xBa-ZS-jl7" secondAttribute="height" multiplier="15:8" id="8rK-XT-XTS"/>
+                                    <constraint firstAttribute="width" constant="240" id="z6N-Cc-sQQ"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="hdM-di-F5W" firstAttribute="top" secondItem="6lu-Fs-bLk" secondAttribute="bottom" constant="200" id="288-rx-g7P"/>
-                            <constraint firstItem="hdM-di-F5W" firstAttribute="centerX" secondItem="P2z-wc-eBk" secondAttribute="centerX" id="6ak-eb-FYy"/>
-                            <constraint firstItem="NMj-0B-ekA" firstAttribute="top" secondItem="hdM-di-F5W" secondAttribute="bottom" constant="84" id="BSn-w8-qJb"/>
-                            <constraint firstItem="NMj-0B-ekA" firstAttribute="centerX" secondItem="P2z-wc-eBk" secondAttribute="centerX" id="rgv-Ju-8Fo"/>
+                            <constraint firstItem="hdM-di-F5W" firstAttribute="centerX" secondItem="P2z-wc-eBk" secondAttribute="centerX" id="4ii-rk-j6J"/>
+                            <constraint firstItem="NMj-0B-ekA" firstAttribute="centerX" secondItem="P2z-wc-eBk" secondAttribute="centerX" id="D7R-W5-LPE"/>
+                            <constraint firstItem="xBa-ZS-jl7" firstAttribute="width" secondItem="xBa-ZS-jl7" secondAttribute="height" multiplier="15:8" id="Zfg-OA-Fmw"/>
+                            <constraint firstItem="hdM-di-F5W" firstAttribute="centerY" secondItem="P2z-wc-eBk" secondAttribute="centerY" id="eKC-t8-Y1U"/>
+                            <constraint firstItem="xBa-ZS-jl7" firstAttribute="centerX" secondItem="P2z-wc-eBk" secondAttribute="centerX" id="f5F-8o-oL2"/>
+                            <constraint firstItem="NMj-0B-ekA" firstAttribute="top" secondItem="hdM-di-F5W" secondAttribute="bottom" constant="48" id="rpN-ha-30Q"/>
+                            <constraint firstItem="hdM-di-F5W" firstAttribute="top" secondItem="xBa-ZS-jl7" secondAttribute="bottom" constant="46" id="ylw-xR-1wc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Beacon Toolkit" id="VFi-bt-yH4"/>
@@ -339,4 +350,7 @@
             <point key="canvasLocation" x="1430" y="973"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="beacon-icon" width="200" height="200"/>
+    </resources>
 </document>
