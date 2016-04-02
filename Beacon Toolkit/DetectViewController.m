@@ -22,7 +22,6 @@
 
     [self initRegion];
     [self.locationManager requestWhenInUseAuthorization];
-    [self locationManager:self.locationManager didStartMonitoringForRegion:self.beaconRegion];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,8 +35,15 @@
 
 - (void)initRegion {
     NSString *beaconUUID = [[NSUserDefaults standardUserDefaults] stringForKey:@"beaconUUID"];
+    NSInteger beaconMajor = [[NSUserDefaults standardUserDefaults] integerForKey:@"beaconMajor"];
+    NSInteger beaconMinor = [[NSUserDefaults standardUserDefaults] integerForKey:@"beaconMinor"];
     NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:beaconUUID];
-    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid identifier:@"com.github.jramos"];
+
+    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid
+                                                                major:beaconMajor
+                                                                minor:beaconMinor
+                                                           identifier:@"com.github.jramos"];
+
     [self.locationManager startMonitoringForRegion:self.beaconRegion];
 }
 

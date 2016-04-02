@@ -24,7 +24,7 @@
             </objects>
             <point key="canvasLocation" x="-371" y="694"/>
         </scene>
-        <!--View Controller-->
+        <!--Beacon Toolkit-->
         <scene sceneID="rAB-wX-dFl">
             <objects>
                 <viewController id="CLw-V6-foz" sceneMemberID="viewController">
@@ -59,7 +59,7 @@
                             <constraint firstItem="NMj-0B-ekA" firstAttribute="centerX" secondItem="P2z-wc-eBk" secondAttribute="centerX" id="rgv-Ju-8Fo"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="VFi-bt-yH4"/>
+                    <navigationItem key="navigationItem" title="Beacon Toolkit" id="VFi-bt-yH4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0LQ-nn-zvk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -26,11 +26,13 @@
 
 - (void)initBeacon {
     NSString *beaconUUID = [[NSUserDefaults standardUserDefaults] stringForKey:@"beaconUUID"];
+    NSInteger beaconMajor = [[NSUserDefaults standardUserDefaults] integerForKey:@"beaconMajor"];
+    NSInteger beaconMinor = [[NSUserDefaults standardUserDefaults] integerForKey:@"beaconMinor"];
     NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:beaconUUID];
 
     self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid
-                                                                major:0
-                                                                minor:0
+                                                                major:beaconMajor
+                                                                minor:beaconMinor
                                                            identifier:@"com.github.jramos"];
 }
 
