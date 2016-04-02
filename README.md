@@ -12,4 +12,4 @@ The default UUID is searched for on all major/minors. The first beacon detected 
 
 ## Transmitting
 
-The default UUID is broadcast with `00` for major and minor. You can use another iOS device running this app to detect the beacon. A combination of `hcitool lescan` and `hcidump --raw` can also be used to detect the beacon.
+The default UUID is broadcast with default major/minor. You can use another iOS device running this app to detect the beacon. A combination of `hcitool lescan` and `hcidump --raw` can also be used to detect the beacon.
