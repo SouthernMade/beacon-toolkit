@@ -20,6 +20,7 @@
 		D00CE3D51CAD84E700C30686 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D00CE3D41CAD84E700C30686 /* CoreBluetooth.framework */; };
 		D00CE3D71CADA08C00C30686 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D00CE3D61CADA08C00C30686 /* Settings.bundle */; };
 		D05111A11CAED96B00D6D3A4 /* TransmitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D05111A01CAED96B00D6D3A4 /* TransmitViewController.m */; };
+		D0A500221CB05B3C00979ABA /* DetectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A500211CB05B3C00979ABA /* DetectTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,8 @@
 		D00CE3D61CADA08C00C30686 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		D051119F1CAED96B00D6D3A4 /* TransmitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransmitViewController.h; sourceTree = "<group>"; };
 		D05111A01CAED96B00D6D3A4 /* TransmitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransmitViewController.m; sourceTree = "<group>"; };
+		D0A500201CB05B3C00979ABA /* DetectTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetectTableViewController.h; sourceTree = "<group>"; };
+		D0A500211CB05B3C00979ABA /* DetectTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetectTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +120,8 @@
 			children = (
 				D00CE39F1CAD82B800C30686 /* AppDelegate.h */,
 				D00CE3A01CAD82B800C30686 /* AppDelegate.m */,
+				D0A500201CB05B3C00979ABA /* DetectTableViewController.h */,
+				D0A500211CB05B3C00979ABA /* DetectTableViewController.m */,
 				D00CE3A21CAD82B800C30686 /* DetectViewController.h */,
 				D00CE3A31CAD82B800C30686 /* DetectViewController.m */,
 				D00CE3A51CAD82B800C30686 /* Main.storyboard */,
@@ -298,6 +303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0A500221CB05B3C00979ABA /* DetectTableViewController.m in Sources */,
 				D00CE3AA1CAD82B800C30686 /* Beacon_Toolkit.xcdatamodeld in Sources */,
 				D00CE3A41CAD82B800C30686 /* DetectViewController.m in Sources */,
 				D00CE3A11CAD82B800C30686 /* AppDelegate.m in Sources */,

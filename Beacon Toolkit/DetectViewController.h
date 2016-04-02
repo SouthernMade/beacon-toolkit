@@ -8,7 +8,6 @@
 
 #import <CoreBluetooth/CoreBluetooth.h>
 #import <CoreLocation/CoreLocation.h>
-
 #import <UIKit/UIKit.h>
 
 @interface DetectViewController : UIViewController <CLLocationManagerDelegate>
@@ -21,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *rssiLabel;
 
+@property (strong, nonatomic) CLBeacon *beacon;
 @property (strong, nonatomic) CLBeaconRegion *beaconRegion;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 

@@ -48,7 +48,7 @@
                                 <rect key="frame" x="277" y="285" width="46" height="30"/>
                                 <state key="normal" title="Detect"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="Nsk-xU-YAA"/>
+                                    <segue destination="ERg-lF-RVz" kind="show" id="Lgo-dY-owl"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beacon-icon" translatesAutoresizingMaskIntoConstraints="NO" id="xBa-ZS-jl7">
@@ -76,10 +76,41 @@
             </objects>
             <point key="canvasLocation" x="406" y="694"/>
         </scene>
-        <!--Detect-->
+        <!--Detected-->
+        <scene sceneID="Hga-1n-n4x">
+            <objects>
+                <tableViewController title="Detected" id="ERg-lF-RVz" customClass="DetectTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="NE7-Mm-DXX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="beaconCell" id="nvO-lx-otY">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nvO-lx-otY" id="qoi-0a-DnP">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="UlV-fW-ZaO"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ERg-lF-RVz" id="iu5-h5-A6V"/>
+                            <outlet property="delegate" destination="ERg-lF-RVz" id="S5F-Vg-Cks"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qpU-B9-qBo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1430" y="272"/>
+        </scene>
+        <!--Detail-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Detect" id="BYZ-38-t0r" customClass="DetectViewController" sceneMemberID="viewController">
+                <viewController title="Detail" id="BYZ-38-t0r" customClass="DetectViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -258,7 +289,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1430" y="292"/>
+            <point key="canvasLocation" x="2123" y="272"/>
         </scene>
         <!--Transmit-->
         <scene sceneID="lom-pU-0V0">

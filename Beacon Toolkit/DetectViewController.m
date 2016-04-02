@@ -29,22 +29,17 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)locationManager:(CLLocationManager *)manager didStartMonitoringForRegion:(CLRegion *)region {
-    [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
-}
-
 - (void)initRegion {
-    NSString *beaconUUID = [[NSUserDefaults standardUserDefaults] stringForKey:@"beaconUUID"];
-    NSInteger beaconMajor = [[NSUserDefaults standardUserDefaults] integerForKey:@"beaconMajor"];
-    NSInteger beaconMinor = [[NSUserDefaults standardUserDefaults] integerForKey:@"beaconMinor"];
-    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:beaconUUID];
-
-    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid
-                                                                major:beaconMajor
-                                                                minor:beaconMinor
+    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:_beacon.proximityUUID
+                                                                major:_beacon.major.shortValue
+                                                                minor:_beacon.minor.shortValue
                                                            identifier:@"com.github.jramos"];
 
     [self.locationManager startMonitoringForRegion:self.beaconRegion];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didStartMonitoringForRegion:(CLRegion *)region {
+    [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
@@ -57,26 +52,25 @@
 }
 
 -(void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region {
-    CLBeacon *beacon = [[CLBeacon alloc] init];
-    beacon = [beacons firstObject];
-    
-    self.beaconFoundLabel.text = @"Yes";
-    self.proximityUUIDLabel.text = beacon.proximityUUID.UUIDString;
-    self.majorLabel.text = [NSString stringWithFormat:@"%@", beacon.major];
-    self.minorLabel.text = [NSString stringWithFormat:@"%@", beacon.minor];
-    self.accuracyLabel.text = [NSString stringWithFormat:@"%f", beacon.accuracy];
+    _beacon = [beacons firstObject];
 
-    if (beacon.proximity == CLProximityUnknown) {
+    self.beaconFoundLabel.text = @"Yes";
+    self.proximityUUIDLabel.text = _beacon.proximityUUID.UUIDString;
+    self.majorLabel.text = [NSString stringWithFormat:@"%@", _beacon.major];
+    self.minorLabel.text = [NSString stringWithFormat:@"%@", _beacon.minor];
+    self.accuracyLabel.text = [NSString stringWithFormat:@"%f", _beacon.accuracy];
+
+    if (_beacon.proximity == CLProximityUnknown) {
         self.distanceLabel.text = @"Unknown";
-    } else if (beacon.proximity == CLProximityImmediate) {
+    } else if (_beacon.proximity == CLProximityImmediate) {
         self.distanceLabel.text = @"Immediate";
-    } else if (beacon.proximity == CLProximityNear) {
+    } else if (_beacon.proximity == CLProximityNear) {
         self.distanceLabel.text = @"Near";
-    } else if (beacon.proximity == CLProximityFar) {
+    } else if (_beacon.proximity == CLProximityFar) {
         self.distanceLabel.text = @"Far";
     }
 
-    self.rssiLabel.text = [NSString stringWithFormat:@"%li", (long)beacon.rssi];
+    self.rssiLabel.text = [NSString stringWithFormat:@"%li", (long)_beacon.rssi];
 }
 
 @end
