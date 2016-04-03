@@ -10,6 +10,8 @@
 
 @interface DetectViewController ()
 
+@property (nonatomic, strong) NSMutableArray *locations;
+
 @end
 
 @implementation DetectViewController
@@ -19,9 +21,10 @@
 
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
-
-    [self initRegion];
     [self.locationManager requestWhenInUseAuthorization];
+
+    [self.mapView setRegion:[self mapRegion] animated: YES];
+    [self initRegion];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -73,6 +76,56 @@
     }
 
     self.rssiLabel.text = [NSString stringWithFormat:@"%li", (long)_beacon.rssi];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    for (CLLocation *newLocation in locations) {
+        if (newLocation.horizontalAccuracy < 10) {
+            [_locations addObject:newLocation];
+        }
+    }
+}
+
+// MARK: MapKit
+
+- (MKCoordinateRegion)mapRegion {
+    MKCoordinateRegion region;
+    CLLocation *initialLoc = _locations.firstObject;
+    
+    float minLat = initialLoc.coordinate.latitude;
+    float minLng = initialLoc.coordinate.longitude;
+    float maxLat = initialLoc.coordinate.latitude;
+    float maxLng = initialLoc.coordinate.longitude;
+    
+    for (CLLocation *_location in _locations) {
+        if (_location.coordinate.latitude < minLat) {
+            minLat = _location.coordinate.latitude;
+        }
+        if (_location.coordinate.longitude < minLng) {
+            minLng = _location.coordinate.longitude;
+        }
+        if (_location.coordinate.latitude > maxLat) {
+            maxLat = _location.coordinate.latitude;
+        }
+        if (_location.coordinate.longitude > maxLng) {
+            maxLng = _location.coordinate.longitude;
+        }
+    }
+    
+    region.center.latitude = (minLat + maxLat) / 2.0f;
+    region.center.longitude = (minLng + maxLng) / 2.0f;
+    
+    region.span.latitudeDelta = (maxLat - minLat) * 1.1f; // 10% padding
+    region.span.longitudeDelta = (maxLng - minLng) * 1.1f; // 10% padding
+    
+    return region;
+}
+
+-(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
+{
+    MKCoordinateRegion mapRegion;
+    mapRegion.center = mapView.userLocation.coordinate;    
+    [mapView setRegion:mapRegion];
 }
 
 @end

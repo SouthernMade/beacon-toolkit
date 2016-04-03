@@ -8,9 +8,10 @@
 
 #import <CoreBluetooth/CoreBluetooth.h>
 #import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
 #import <UIKit/UIKit.h>
 
-@interface DetectViewController : UIViewController <CLLocationManagerDelegate>
+@interface DetectViewController : UIViewController <CLLocationManagerDelegate, MKMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *beaconFoundLabel;
 @property (weak, nonatomic) IBOutlet UILabel *proximityUUIDLabel;
@@ -23,6 +24,7 @@
 @property (strong, nonatomic) CLBeacon *beacon;
 @property (strong, nonatomic) CLBeaconRegion *beaconRegion;
 @property (strong, nonatomic) CLLocationManager *locationManager;
+@property (nonatomic, strong) MKMapView *mapView;
 
 @end
 

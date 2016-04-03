@@ -218,7 +218,7 @@
                                     <rect key="frame" x="103" y="145" width="277" height="21"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="0Jb-U1-OIv">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="0Jb-U1-OIv">
                                 <rect key="frame" x="80" y="127" width="265" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -236,12 +236,19 @@
                                     <rect key="frame" x="103" y="116" width="277" height="21"/>
                                 </variation>
                             </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="satellite" pitchEnabled="NO" showsUserLocation="YES" showsBuildings="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GHl-xQ-xE3">
+                                <rect key="frame" x="20" y="318" width="560" height="262"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Fgp-aG-ziJ"/>
+                                </connections>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="aS8-bt-zG8" firstAttribute="trailing" secondItem="9nm-b6-gdg" secondAttribute="trailing" id="1Tr-Ip-ps9"/>
                             <constraint firstItem="6rB-6O-QWk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="60" id="1gi-dk-oqj"/>
                             <constraint firstItem="oMA-hQ-ovc" firstAttribute="baseline" secondItem="aS8-bt-zG8" secondAttribute="firstBaseline" id="22l-F3-E4S"/>
+                            <constraint firstItem="GHl-xQ-xE3" firstAttribute="top" secondItem="hw3-jP-ris" secondAttribute="bottom" constant="26" id="2KI-BP-0MZ"/>
                             <constraint firstItem="6rB-6O-QWk" firstAttribute="trailing" secondItem="0Jb-U1-OIv" secondAttribute="trailing" id="2al-bh-TLz"/>
                             <constraint firstItem="5yV-vi-UNB" firstAttribute="trailing" secondItem="rIB-te-Mnu" secondAttribute="trailing" id="3Mn-56-HvQ"/>
                             <constraint firstItem="9nm-b6-gdg" firstAttribute="top" secondItem="aS8-bt-zG8" secondAttribute="bottom" constant="8" id="5oa-va-2JA"/>
@@ -264,12 +271,14 @@
                             <constraint firstItem="6PB-c5-jYh" firstAttribute="baseline" secondItem="6rB-6O-QWk" secondAttribute="baseline" id="XTD-rH-Avw"/>
                             <constraint firstItem="sx9-1e-oUx" firstAttribute="baseline" secondItem="0Jb-U1-OIv" secondAttribute="firstBaseline" constant="3" id="cue-kJ-TfP"/>
                             <constraint firstItem="aS8-bt-zG8" firstAttribute="top" secondItem="0Jb-U1-OIv" secondAttribute="bottom" constant="8" id="dzH-dE-Aig"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="GHl-xQ-xE3" secondAttribute="trailing" id="eTC-Dt-Hga"/>
                             <constraint firstItem="9nm-b6-gdg" firstAttribute="leading" secondItem="n51-Uj-pLU" secondAttribute="trailing" constant="8" symbolic="YES" id="egh-R1-7g7"/>
                             <constraint firstItem="5yV-vi-UNB" firstAttribute="baseline" secondItem="rQ4-Zu-Ntk" secondAttribute="firstBaseline" id="exV-1o-siw"/>
                             <constraint firstItem="beG-W6-GVJ" firstAttribute="top" secondItem="5yV-vi-UNB" secondAttribute="bottom" constant="8" symbolic="YES" id="fnf-fE-gnE"/>
                             <constraint firstItem="rQ4-Zu-Ntk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="60" id="hk8-en-dXd"/>
                             <constraint firstItem="oMA-hQ-ovc" firstAttribute="baseline" secondItem="aS8-bt-zG8" secondAttribute="baseline" id="jcw-Gv-2Ap"/>
                             <constraint firstItem="VGH-2W-ax3" firstAttribute="trailing" secondItem="hw3-jP-ris" secondAttribute="trailing" id="l4s-ho-iGO"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="GHl-xQ-xE3" secondAttribute="bottom" constant="20" id="mMI-O0-LSs"/>
                             <constraint firstItem="0Jb-U1-OIv" firstAttribute="top" secondItem="6rB-6O-QWk" secondAttribute="bottom" constant="9" id="mwS-UI-L3s"/>
                             <constraint firstItem="sx9-1e-oUx" firstAttribute="trailing" secondItem="5yV-vi-UNB" secondAttribute="trailing" id="rJG-X0-qOM"/>
                             <constraint firstItem="9nm-b6-gdg" firstAttribute="trailing" secondItem="rQ4-Zu-Ntk" secondAttribute="trailing" id="ttU-Hd-pKc"/>
@@ -277,6 +286,7 @@
                             <constraint firstItem="6rB-6O-QWk" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="33" id="v7D-6I-bvT"/>
                             <constraint firstItem="6PB-c5-jYh" firstAttribute="trailing" secondItem="sx9-1e-oUx" secondAttribute="trailing" id="vJd-Nd-qqn"/>
                             <constraint firstItem="hw3-jP-ris" firstAttribute="top" secondItem="VGH-2W-ax3" secondAttribute="bottom" constant="8" id="w3Z-4B-dwp"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="GHl-xQ-xE3" secondAttribute="leading" id="zvC-wO-nR3"/>
                         </constraints>
                     </view>
                     <connections>
