@@ -28,12 +28,13 @@
     NSString *beaconUUID = [[NSUserDefaults standardUserDefaults] stringForKey:@"beaconUUID"];
     NSInteger beaconMajor = [[NSUserDefaults standardUserDefaults] integerForKey:@"beaconMajor"];
     NSInteger beaconMinor = [[NSUserDefaults standardUserDefaults] integerForKey:@"beaconMinor"];
+    NSString *beaconIdentifier = [[NSUserDefaults standardUserDefaults] stringForKey:@"beaconIdentifier"];
     NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:beaconUUID];
 
     self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid
                                                                 major:beaconMajor
                                                                 minor:beaconMinor
-                                                           identifier:@"com.github.jramos"];
+                                                           identifier:beaconIdentifier];
 }
 
 - (IBAction)transmitBeacon:(UIButton *)sender {

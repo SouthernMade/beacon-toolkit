@@ -30,10 +30,12 @@
 }
 
 - (void)initRegion {
+    NSString *beaconIdentifier = [[NSUserDefaults standardUserDefaults] stringForKey:@"beaconIdentifier"];
+
     self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:_beacon.proximityUUID
                                                                 major:_beacon.major.shortValue
                                                                 minor:_beacon.minor.shortValue
-                                                           identifier:@"com.github.jramos"];
+                                                           identifier:beaconIdentifier];
 
     [self.locationManager startMonitoringForRegion:self.beaconRegion];
 }

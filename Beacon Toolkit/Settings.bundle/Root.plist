@@ -36,6 +36,16 @@
 			<key>DefaultValue</key>
 			<string>00</string>
 		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Identifier</string>
+			<key>Key</key>
+			<string>beaconIdentifier</string>
+			<key>DefaultValue</key>
+			<string>com.github.jramos</string>
+		</dict>
 	</array>
 </dict>
 </plist>
