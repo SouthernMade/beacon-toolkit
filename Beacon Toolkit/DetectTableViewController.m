@@ -70,7 +70,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"beaconCell" forIndexPath:indexPath];
     CLBeacon *beacon = _beacons[indexPath.row];
-    cell.textLabel.text = [beacon.proximityUUID UUIDString];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@  %@ %@",
+                            [beacon.proximityUUID UUIDString],
+                            [beacon.major stringValue],
+                            [beacon.minor stringValue]
+                           ];
     return cell;
 }
 
