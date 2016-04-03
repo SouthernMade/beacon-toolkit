@@ -56,8 +56,8 @@
 
     self.beaconFoundLabel.text = @"Yes";
     self.proximityUUIDLabel.text = _beacon.proximityUUID.UUIDString;
-    self.majorLabel.text = [NSString stringWithFormat:@"%@", _beacon.major];
-    self.minorLabel.text = [NSString stringWithFormat:@"%@", _beacon.minor];
+    self.majorLabel.text = _beacon.major.stringValue;
+    self.minorLabel.text = _beacon.minor.stringValue;
     self.accuracyLabel.text = [NSString stringWithFormat:@"%f", _beacon.accuracy];
 
     if (_beacon.proximity == CLProximityUnknown) {
