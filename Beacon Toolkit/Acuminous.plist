@@ -8,8 +8,8 @@
 		<string>beacon-toolkit</string>
 		<key>TrackerNamespace</key>
 		<string>com.github.jramos</string>
-		<key>TrackerUrl</key>
-		<string>http://cumulo.acuminous.io</string>
+		<key>TrackerHostname</key>
+		<string>cumulo.acuminous.io</string>
 		<key>InitPlatformContext</key>
 		<true/>
 		<key>InitSessionContext</key>

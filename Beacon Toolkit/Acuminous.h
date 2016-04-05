@@ -6,6 +6,7 @@
 //  Copyright © 2016 Justin Ramos. Released under the MIT license.
 //
 
+#import <CoreLocation/CoreLocation.h>
 #import <Foundation/Foundation.h>
 #import "SPTracker.h"
 #import "SPRequestCallback.h"

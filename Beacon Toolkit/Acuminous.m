@@ -40,7 +40,7 @@
     NSString *path = [[NSBundle mainBundle] pathForResource:@"Acuminous" ofType:@"plist"];
     _config = [[[NSDictionary alloc] initWithContentsOfFile:path] objectForKey:@"Acuminous"];
     
-    return [self initWithUrl:[_config objectForKey:@"TrackerUrl"]];
+    return [self initWithUrl:[_config objectForKey:@"TrackerHostname"]];
 }
 
 - (instancetype)initWithUrl:(NSString *)url_ {
@@ -52,13 +52,13 @@
             [builder setTrackerNamespace:[_config objectForKey:@"TrackerNamespace"]];
             [builder setBase64Encoded:[_config objectForKey:@"Base64Encoded"]];
             [builder setSessionContext:[_config objectForKey:@"InitSessionContext"]];
+            [builder setEmitter:[SPEmitter build:^(id<SPEmitterBuilder> builder) {
+                [builder setUrlEndpoint:url_];
+                [builder setProtocol:SPHttp];
+                [builder setHttpMethod:SPRequestPost];
+            }]];
         }];
         
-        [_tracker setEmitter:[SPEmitter build:^(id<SPEmitterBuilder> builder) {
-            [builder setUrlEndpoint:url_];
-            [builder setHttpMethod:SPRequestPost];
-        }]];
-
         [_tracker setSubject:[[SPSubject alloc] initWithPlatformContext:[_config objectForKey:@"InitPlatformContext"]
                                                           andGeoContext:[_config objectForKey:@"InitGeoContext"]]];
         [_tracker.emitter setCallback:self];

@@ -6,9 +6,13 @@
 //  Copyright © 2016 Justin Ramos. Released under the MIT license.
 //
 
+#import "Acuminous.h"
 #import "DetectViewController.h"
+#import "SPEvent.h"
 
 @interface DetectViewController ()
+
+@property (nonatomic, strong) SPTracker *tracker;
 
 @end
 
@@ -19,7 +23,10 @@
 
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
+    self.locationManager.distanceFilter = 3;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     [self.locationManager requestWhenInUseAuthorization];
+    [self setTracker:[Acuminous sharedTracker]];
     [self initRegion];
 }
 
@@ -37,6 +44,25 @@
                                                            identifier:beaconIdentifier];
 
     [self.locationManager startMonitoringForRegion:self.beaconRegion];
+}
+
+- (void) trackBeaconSighting:(CLBeacon *)beacon withProximity:(NSString *)proximity {
+    if (
+        [self.locationManager location] &&
+        beacon.accuracy < 10.0 &&
+        beacon.accuracy > 0.0
+    ) {
+        SPStructured *event = [SPStructured build:^(id<SPStructuredBuilder> builder) {
+            [builder setCategory:@"beacon"];
+            [builder setAction:@"detect"];
+            [builder setLabel:beacon.proximityUUID.UUIDString];
+            [builder setProperty:proximity];
+            [builder setValue:_beacon.accuracy];
+        }];
+        
+        [[Acuminous sharedInstance] setGeoContextFor:[self.locationManager location]];
+        [self.tracker trackStructuredEvent:event];
+    }
 }
 
 - (void)locationManager:(CLLocationManager *)manager didStartMonitoringForRegion:(CLRegion *)region {
@@ -65,10 +91,13 @@
         self.distanceLabel.text = @"Unknown";
     } else if (_beacon.proximity == CLProximityImmediate) {
         self.distanceLabel.text = @"Immediate";
+        [self trackBeaconSighting:_beacon withProximity:@"Immediate"];
     } else if (_beacon.proximity == CLProximityNear) {
         self.distanceLabel.text = @"Near";
+        [self trackBeaconSighting:_beacon withProximity:@"Near"];
     } else if (_beacon.proximity == CLProximityFar) {
         self.distanceLabel.text = @"Far";
+        [self trackBeaconSighting:_beacon withProximity:@"Far"];
     }
 
     self.rssiLabel.text = [NSString stringWithFormat:@"%li", (long)_beacon.rssi];
