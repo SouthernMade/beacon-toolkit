@@ -5,7 +5,7 @@
 	<key>Acuminous</key>
 	<dict>
 		<key>AppId</key>
-		<string>beacon-toolkit</string>
+		<string>beacon_toolkit</string>
 		<key>TrackerNamespace</key>
 		<string>com.github.jramos</string>
 		<key>TrackerHostname</key>
