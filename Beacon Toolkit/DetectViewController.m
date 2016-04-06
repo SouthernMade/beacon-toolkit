@@ -13,6 +13,7 @@
 @interface DetectViewController ()
 
 @property (nonatomic, strong) SPTracker *tracker;
+@property (nonatomic) Boolean shouldTrackBeacon;
 
 @end
 
@@ -30,9 +31,22 @@
     [self initRegion];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)startBeaconTracking {
+    [self allowBeaconTracking];
+
+    [NSTimer scheduledTimerWithTimeInterval:30.0
+                                     target:self
+                                   selector:@selector(allowBeaconTracking)
+                                   userInfo:nil
+                                    repeats:YES];
+}
+
+- (void)stopBeaconTracking {
+    [NSTimer cancelPreviousPerformRequestsWithTarget:self selector:@selector(allowBeaconTracking) object:nil];
+}
+
+- (void)allowBeaconTracking {
+    self.shouldTrackBeacon = true;
 }
 
 - (void)initRegion {
@@ -48,10 +62,13 @@
 
 - (void) trackBeaconSighting:(CLBeacon *)beacon withProximity:(NSString *)proximity {
     if (
+        self.shouldTrackBeacon &&
         [self.locationManager location] &&
-        beacon.accuracy < 10.0 &&
+        beacon.accuracy < 20.0 &&
         beacon.accuracy > 0.0
     ) {
+        self.shouldTrackBeacon = false;
+
         SPStructured *event = [SPStructured build:^(id<SPStructuredBuilder> builder) {
             [builder setCategory:@"beacon"];
             [builder setAction:@"detect"];
@@ -62,18 +79,22 @@
         
         [[Acuminous sharedInstance] setGeoContextFor:[self.locationManager location]];
         [self.tracker trackStructuredEvent:event];
+        [[Acuminous sharedInstance] flushBuffer];
     }
 }
 
 - (void)locationManager:(CLLocationManager *)manager didStartMonitoringForRegion:(CLRegion *)region {
+    [self startBeaconTracking];
     [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
+    [self startBeaconTracking];
     [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
 }
 
 -(void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region {
+    [self stopBeaconTracking];
     [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
     self.beaconFoundLabel.text = @"No";
 }
@@ -91,13 +112,14 @@
         self.distanceLabel.text = @"Unknown";
     } else if (_beacon.proximity == CLProximityImmediate) {
         self.distanceLabel.text = @"Immediate";
-        [self trackBeaconSighting:_beacon withProximity:@"Immediate"];
     } else if (_beacon.proximity == CLProximityNear) {
         self.distanceLabel.text = @"Near";
-        [self trackBeaconSighting:_beacon withProximity:@"Near"];
     } else if (_beacon.proximity == CLProximityFar) {
         self.distanceLabel.text = @"Far";
-        [self trackBeaconSighting:_beacon withProximity:@"Far"];
+    }
+
+    if (![self.distanceLabel.text isEqual:@"Unknown"]) {
+        [self trackBeaconSighting:_beacon withProximity:self.distanceLabel.text];
     }
 
     self.rssiLabel.text = [NSString stringWithFormat:@"%li", (long)_beacon.rssi];
