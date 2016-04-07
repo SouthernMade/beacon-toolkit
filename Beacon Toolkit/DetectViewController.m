@@ -9,6 +9,7 @@
 #import "Acuminous.h"
 #import "DetectViewController.h"
 #import "SPEvent.h"
+#import "SPSelfDescribingJson.h"
 
 @interface DetectViewController ()
 
@@ -68,17 +69,26 @@
         beacon.accuracy > 0.0
     ) {
         self.shouldTrackBeacon = false;
+        [[Acuminous sharedInstance] setGeoContextFor:[self.locationManager location]];
 
-        SPStructured *event = [SPStructured build:^(id<SPStructuredBuilder> builder) {
-            [builder setCategory:@"beacon"];
-            [builder setAction:@"detect"];
-            [builder setLabel:beacon.proximityUUID.UUIDString];
-            [builder setProperty:proximity];
-            [builder setValue:_beacon.accuracy];
+        NSString *schema = @"iglu:io.acuminous.cumulo/ibeacon_sighting/jsonschema/1-0-0";
+        NSDictionary *data = @{
+            @"uuid": beacon.proximityUUID.UUIDString,
+            @"major": beacon.major,
+            @"minor": beacon.minor,
+            @"accuracy": [NSNumber numberWithDouble:beacon.accuracy],
+            @"proximity": proximity,
+            @"rssi": [NSNumber numberWithLong:beacon.rssi]
+        };
+
+        SPSelfDescribingJson *sdj = [[SPSelfDescribingJson alloc] initWithSchema:schema
+                                                                          andData:data];
+
+        SPUnstructured *event = [SPUnstructured build:^(id<SPUnstructuredBuilder> builder) {
+            [builder setEventData:sdj];
         }];
         
-        [[Acuminous sharedInstance] setGeoContextFor:[self.locationManager location]];
-        [self.tracker trackStructuredEvent:event];
+        [self.tracker trackUnstructuredEvent:event];
         [[Acuminous sharedInstance] flushBuffer];
     }
 }
