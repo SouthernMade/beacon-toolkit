@@ -43,6 +43,7 @@
 }
 
 - (void)stopBeaconTracking {
+    self.shouldTrackBeacon = false;
     [NSTimer cancelPreviousPerformRequestsWithTarget:self selector:@selector(allowBeaconTracking) object:nil];
 }
 
