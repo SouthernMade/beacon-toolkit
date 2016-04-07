@@ -23,6 +23,7 @@
 		D0388D621CB4239A00837B50 /* Acuminous.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0388D611CB4239A00837B50 /* Acuminous.plist */; };
 		D04FF4DA1CB1C10E00FF2A3F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D04FF4D91CB1C10E00FF2A3F /* MapKit.framework */; };
 		D05111A11CAED96B00D6D3A4 /* TransmitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D05111A01CAED96B00D6D3A4 /* TransmitViewController.m */; };
+		D082EA9A1CB6BB6E005A29E9 /* DetectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D082EA991CB6BB6E005A29E9 /* DetectTableViewCell.m */; };
 		D0A500221CB05B3C00979ABA /* DetectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A500211CB05B3C00979ABA /* DetectTableViewController.m */; };
 		F12B2FC4BB610762E96BA8DF /* libPods-Beacon Toolkit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3B20FD17158412D6ECAB25 /* libPods-Beacon Toolkit.a */; };
 /* End PBXBuildFile section */
@@ -74,6 +75,8 @@
 		D04FF4D91CB1C10E00FF2A3F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D051119F1CAED96B00D6D3A4 /* TransmitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransmitViewController.h; sourceTree = "<group>"; };
 		D05111A01CAED96B00D6D3A4 /* TransmitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransmitViewController.m; sourceTree = "<group>"; };
+		D082EA981CB6BB6E005A29E9 /* DetectTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetectTableViewCell.h; sourceTree = "<group>"; };
+		D082EA991CB6BB6E005A29E9 /* DetectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetectTableViewCell.m; sourceTree = "<group>"; };
 		D0A500201CB05B3C00979ABA /* DetectTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetectTableViewController.h; sourceTree = "<group>"; };
 		D0A500211CB05B3C00979ABA /* DetectTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetectTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -132,6 +135,8 @@
 		D00CE39B1CAD82B800C30686 /* Beacon Toolkit */ = {
 			isa = PBXGroup;
 			children = (
+				D082EA981CB6BB6E005A29E9 /* DetectTableViewCell.h */,
+				D082EA991CB6BB6E005A29E9 /* DetectTableViewCell.m */,
 				D0388D5C1CB421A800837B50 /* Controllers */,
 				D00CE39F1CAD82B800C30686 /* AppDelegate.h */,
 				D00CE3A01CAD82B800C30686 /* AppDelegate.m */,
@@ -409,6 +414,7 @@
 				D00CE3AA1CAD82B800C30686 /* Beacon_Toolkit.xcdatamodeld in Sources */,
 				D00CE3A41CAD82B800C30686 /* DetectViewController.m in Sources */,
 				D00CE3A11CAD82B800C30686 /* AppDelegate.m in Sources */,
+				D082EA9A1CB6BB6E005A29E9 /* DetectTableViewCell.m in Sources */,
 				D0388D601CB4220100837B50 /* Acuminous.m in Sources */,
 				D00CE39E1CAD82B800C30686 /* main.m in Sources */,
 				D05111A11CAED96B00D6D3A4 /* TransmitViewController.m in Sources */,

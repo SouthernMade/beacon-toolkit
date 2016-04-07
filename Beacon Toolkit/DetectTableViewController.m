@@ -7,6 +7,7 @@
 //
 
 #import "DetectViewController.h"
+#import "DetectTableViewCell.h"
 #import "DetectTableViewController.h"
 
 @interface DetectTableViewController ()
@@ -69,13 +70,23 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"beaconCell" forIndexPath:indexPath];
+    DetectTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"beaconCell" forIndexPath:indexPath];
     CLBeacon *beacon = _beacons[indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@  %@ %@",
-                            [beacon.proximityUUID UUIDString],
-                            [beacon.major stringValue],
-                            [beacon.minor stringValue]
-                           ];
+
+    cell.majorLabel.text = [beacon.major stringValue];
+    cell.minorLabel.text = [beacon.minor stringValue];
+    cell.accuracyLabel.text = [NSString stringWithFormat:@"%d", (int) round(beacon.accuracy)];
+
+    if (beacon.proximity == CLProximityUnknown) {
+        cell.distanceLabel.text = @"Unknown";
+    } else if (beacon.proximity == CLProximityImmediate) {
+        cell.distanceLabel.text = @"Immediate";
+    } else if (beacon.proximity == CLProximityNear) {
+        cell.distanceLabel.text = @"Near";
+    } else if (beacon.proximity == CLProximityFar) {
+        cell.distanceLabel.text = @"Far";
+    }
+
     return cell;
 }
 
