@@ -50,8 +50,8 @@
         _tracker = [SPTracker build:^(id<SPTrackerBuilder> builder) {
             [builder setAppId:[_config objectForKey:@"AppId"]];
             [builder setTrackerNamespace:[_config objectForKey:@"TrackerNamespace"]];
-            [builder setBase64Encoded:[_config objectForKey:@"Base64Encoded"]];
-            [builder setSessionContext:[_config objectForKey:@"InitSessionContext"]];
+            [builder setBase64Encoded:(Boolean) [_config objectForKey:@"Base64Encoded"]];
+            [builder setSessionContext:(Boolean) [_config objectForKey:@"InitSessionContext"]];
             [builder setEmitter:[SPEmitter build:^(id<SPEmitterBuilder> builder) {
                 [builder setUrlEndpoint:url_];
                 [builder setProtocol:SPHttp];
@@ -59,8 +59,8 @@
             }]];
         }];
         
-        [_tracker setSubject:[[SPSubject alloc] initWithPlatformContext:[_config objectForKey:@"InitPlatformContext"]
-                                                          andGeoContext:[_config objectForKey:@"InitGeoContext"]]];
+        [_tracker setSubject:[[SPSubject alloc] initWithPlatformContext:(Boolean) [_config objectForKey:@"InitPlatformContext"]
+                                                          andGeoContext:(Boolean) [_config objectForKey:@"InitGeoContext"]]];
         [_tracker.emitter setCallback:self];
     }
     
@@ -102,11 +102,11 @@
 // Callback Functions
 
 - (void) onSuccessWithCount:(NSInteger)successCount {
-    NSLog(@"Tracked %li events successfully", successCount);
+    NSLog(@"Tracked %li events successfully", (long)successCount);
 }
 
 - (void) onFailureWithCount:(NSInteger)failureCount successCount:(NSInteger)successCount {
-    NSLog(@"Failed to track %li events", failureCount);
+    NSLog(@"Failed to track %li events", (long)failureCount);
 }
 
 @end

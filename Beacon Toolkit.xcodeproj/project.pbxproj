@@ -135,18 +135,15 @@
 		D00CE39B1CAD82B800C30686 /* Beacon Toolkit */ = {
 			isa = PBXGroup;
 			children = (
-				D082EA981CB6BB6E005A29E9 /* DetectTableViewCell.h */,
-				D082EA991CB6BB6E005A29E9 /* DetectTableViewCell.m */,
 				D0388D5C1CB421A800837B50 /* Controllers */,
 				D00CE39F1CAD82B800C30686 /* AppDelegate.h */,
 				D00CE3A01CAD82B800C30686 /* AppDelegate.m */,
-				D00CE3A51CAD82B800C30686 /* Main.storyboard */,
 				D00CE3AB1CAD82B800C30686 /* Assets.xcassets */,
-				D00CE3AD1CAD82B800C30686 /* LaunchScreen.storyboard */,
 				D00CE3B01CAD82B800C30686 /* Info.plist */,
 				D00CE3A81CAD82B800C30686 /* Beacon_Toolkit.xcdatamodeld */,
 				D00CE39C1CAD82B800C30686 /* Supporting Files */,
 				D00CE3D61CADA08C00C30686 /* Settings.bundle */,
+				D06D99641CB6ED2000908747 /* Views */,
 				D0388D5D1CB421BF00837B50 /* Utils */,
 			);
 			path = "Beacon Toolkit";
@@ -210,6 +207,17 @@
 				D0388D5F1CB4220100837B50 /* Acuminous.m */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		D06D99641CB6ED2000908747 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D082EA981CB6BB6E005A29E9 /* DetectTableViewCell.h */,
+				D082EA991CB6BB6E005A29E9 /* DetectTableViewCell.m */,
+				D00CE3A51CAD82B800C30686 /* Main.storyboard */,
+				D00CE3AD1CAD82B800C30686 /* LaunchScreen.storyboard */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		D1470D6F63E9B4646A66535F /* Pods */ = {
