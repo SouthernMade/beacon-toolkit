@@ -44,7 +44,7 @@
 			<key>Key</key>
 			<string>beaconIdentifier</string>
 			<key>DefaultValue</key>
-			<string>com.github.jramos</string>
+			<string>co.southernmade</string>
 		</dict>
 	</array>
 </dict>
