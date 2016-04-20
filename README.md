@@ -8,7 +8,7 @@ You can change the UUID and major/minor in the app settings.
 
 ## Detecting
 
-The default UUID is searched for on all major/minors. You can use my [pi-beacon configuration](https://github.com/jramos/raspbian-ua-netinst-conf#pi-beacon) to convert a Raspberry Pi into an iBeacon that broadcasts the default UUID.
+The default UUID is searched for on all major/minors. The BKON beacons have been configured to broadcast this UUID.
 
 ### Logging
 
