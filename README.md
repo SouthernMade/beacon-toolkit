@@ -1,8 +1,8 @@
 # beacon-toolkit
 
-Detect and transmit iBeacon signals.
+Detect, transmit and log iBeacon sightings.
 
-By default, UUID `E20A39F4-73F5-4BC4-A12F-17D1AD07A961` is used with `00` for major/minor.
+By default, UUID `C48C6716-193F-477B-B73A-C550CE582A22` is used with `00` for major/minor.
 
 You can change the UUID and major/minor in the app settings.
 
