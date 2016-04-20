@@ -10,6 +10,10 @@ You can change the UUID and major/minor in the app settings.
 
 The default UUID is searched for on all major/minors. You can use my [pi-beacon configuration](https://github.com/jramos/raspbian-ua-netinst-conf#pi-beacon) to convert a Raspberry Pi into an iBeacon that broadcasts the default UUID.
 
+### Logging
+
+When detecting, an Acuminous event will be emitted every 30 seconds with the beacon information and a geolocation context for the user. The app_id is `beacon_toolkit`.
+
 ## Transmitting
 
 The default UUID is broadcast with default major/minor. You can use another iOS device running this app to detect the beacon. A combination of `hcitool lescan` and `hcidump --raw` can also be used to detect the beacon.
